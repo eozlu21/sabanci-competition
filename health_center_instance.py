@@ -115,9 +115,15 @@ class Distances:
     def __init__(
         self, instance: HealthCenterInstancePartOne | HealthCenterInstancePartTwo
     ) -> None:
-        self._coordinates = {
-            node["index"] - 1: (node["x"], node["y"]) for node in instance.nodes
-        }
+        if isinstance(instance, HealthCenterInstancePartTwo):
+            self._coordinates = {
+                node["index"]: (node["x"], node["y"]) for node in instance.nodes
+            }
+            self._coordinates[0] = instance.depot_coords
+        else:
+            self._coordinates = {
+                node["index"] - 1: (node["x"], node["y"]) for node in instance.nodes
+            }
         self.distances = {
             (i, j): sqrt(
                 (self._coordinates[i][0] - self._coordinates[j][0]) ** 2

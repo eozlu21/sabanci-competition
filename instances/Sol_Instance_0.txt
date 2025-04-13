@@ -2,3 +2,7 @@ Stage-1:
 Healthcenter deployed at 14: Communities Assigned = {1, 2, 3, 4, 5, 6, 10, 11, 12, 13, 14, 15, 16, 19, 20}
 Healthcenter deployed at 17: Communities Assigned = {7, 8, 9, 17, 18}
 Objective Value: 14949.49059332792
+
+Stage-2:
+Route 1: Depot -> Healthcenter at 14 -> Healthcenter at 17 -> Depot
+Objective Value: 685.39

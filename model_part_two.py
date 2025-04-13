@@ -28,17 +28,21 @@ def build_part_two_model(instance: HealthCenterInstancePartTwo) -> gp.Model:
         gp.quicksum(
             z[i, k] * distances[assignments[i][0], assignments[k][0]]
             for i in range(M)
-            for k in range(1, M)
+            for k in range(M)
             if i != k
         ),
         GRB.MINIMIZE,
     )
 
     model.addConstrs(gp.quicksum(z[i, k] for i in range(M)) == 1 for k in range(1, M))
-    model.addConstrs(
-        gp.quicksum(z[k, i] for i in range(1, M)) <= 1 for k in range(1, M)
-    )
+    model.addConstrs(gp.quicksum(z[k, i] for i in range(M)) == 1 for k in range(1, M))
 
+    model.addConstr(gp.quicksum(z[i, i] for i in range(M)) == 0)
+
+    model.addConstr(
+        gp.quicksum(z[0, k] for k in range(1, M))
+        == gp.quicksum(z[k, 0] for k in range(1, M))
+    )
     model.addConstr(u[0] == 0, name="u0_zero")
 
     model.addConstrs(

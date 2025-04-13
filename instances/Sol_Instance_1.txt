@@ -1,12 +1,16 @@
 Stage-1:
-Healthcenter deployed at 14: Communities Assigned = {7, 11, 14, 15, 17, 25, 93}
-Healthcenter deployed at 28: Communities Assigned = {3, 8, 18, 27}
-Healthcenter deployed at 50: Communities Assigned = {43, 47, 49, 71, 91}
-Healthcenter deployed at 51: Communities Assigned = {30, 44, 51}
-Healthcenter deployed at 55: Communities Assigned = {33, 54, 55}
-Healthcenter deployed at 62: Communities Assigned = {4, 62, 63, 64, 68, 88}
-Healthcenter deployed at 69: Communities Assigned = {1, 21, 45, 46, 52, 53, 56, 59, 61, 69, 70, 99}
-Healthcenter deployed at 84: Communities Assigned = {2, 5, 6, 10, 12, 13, 16, 19, 20, 22, 24, 26, 29, 31, 32, 35, 38, 39, 40, 41, 42, 48, 50, 57, 58, 60, 65, 66, 67, 72, 73, 75, 77, 78, 80, 83, 84, 85, 86, 94, 95, 96}
-Healthcenter deployed at 91: Communities Assigned = {23, 36, 37, 74, 76, 81, 82, 87, 100}
-Healthcenter deployed at 100: Communities Assigned = {9, 28, 34, 79, 89, 90, 92, 97, 98}
-Objective Value: 28636.59546803705
+Healthcenter deployed at 14: Communities Assigned = {14, 15, 23, 24, 25, 36, 57, 90, 91, 93}
+Healthcenter deployed at 28: Communities Assigned = {7, 8, 17, 18, 27, 41, 96, 98}
+Healthcenter deployed at 50: Communities Assigned = {43, 47, 49, 71}
+Healthcenter deployed at 51: Communities Assigned = {2, 44, 51, 68}
+Healthcenter deployed at 55: Communities Assigned = {1, 11, 29, 52, 53, 54, 55, 61, 63, 77}
+Healthcenter deployed at 66: Communities Assigned = {62}
+Healthcenter deployed at 69: Communities Assigned = {45, 46, 56, 69, 70}
+Healthcenter deployed at 77: Communities Assigned = {3, 28, 37, 40, 64, 67, 74, 76, 81, 82, 94}
+Healthcenter deployed at 79: Communities Assigned = {9, 13, 33, 38, 65, 79, 89, 97}
+Healthcenter deployed at 93: Communities Assigned = {4, 5, 6, 10, 12, 16, 19, 20, 21, 22, 26, 30, 31, 32, 34, 35, 39, 42, 48, 50, 58, 59, 60, 66, 72, 73, 75, 78, 80, 83, 84, 85, 86, 87, 88, 92, 95, 99, 100}
+Objective Value: 28636.59546803703
+
+Stage-2:
+Route 1: Depot -> Healthcenter at 77 -> Healthcenter at 93 -> Healthcenter at 79 -> Healthcenter at 28 -> Healthcenter at 14 -> Healthcenter at 69 -> Healthcenter at 50 -> Healthcenter at 66 -> Healthcenter at 51 -> Healthcenter at 55 -> Depot
+Objective Value: 5139.61
