@@ -11,7 +11,7 @@
 #SBATCH -e sabanci-%j.err
 
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=your_email@ku.edu.tr  # <-- Replace this with your actual email
+#SBATCH --mail-user=eozlu21@ku.edu.tr  # <-- Replace this with your actual email
 
 # Load any required modules
 # module load cuda/11.7
