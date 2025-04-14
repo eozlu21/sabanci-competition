@@ -1,21 +1,21 @@
 Stage-1:
-Healthcenter deployed at 4: Communities Assigned = {7, 23, 32, 49, 90}
-Healthcenter deployed at 10: Communities Assigned = {6, 8, 22, 91, 98}
-Healthcenter deployed at 17: Communities Assigned = {2, 15, 16, 25, 35, 51, 58, 67, 80, 93, 94}
-Healthcenter deployed at 20: Communities Assigned = {13, 20, 29, 42, 52, 75, 88}
-Healthcenter deployed at 48: Communities Assigned = {4, 5, 26, 43, 46, 48, 79, 86, 99}
-Healthcenter deployed at 52: Communities Assigned = {54, 55, 56, 68, 89}
-Healthcenter deployed at 63: Communities Assigned = {9, 19, 37, 63, 77, 81}
-Healthcenter deployed at 72: Communities Assigned = {53, 64, 72, 96}
-Healthcenter deployed at 78: Communities Assigned = {1, 10, 21, 34, 41, 66, 78}
-Healthcenter deployed at 82: Communities Assigned = {11, 14, 45, 59, 76, 95, 97}
-Healthcenter deployed at 85: Communities Assigned = {18, 24, 28, 40, 61, 62, 100}
-Healthcenter deployed at 88: Communities Assigned = {17, 33, 36, 50, 57, 84}
-Healthcenter deployed at 92: Communities Assigned = {12, 39, 60, 65, 69, 74, 82, 85, 87, 92}
-Healthcenter deployed at 96: Communities Assigned = {31, 44, 71, 73, 83}
-Healthcenter deployed at 98: Communities Assigned = {3, 27, 30, 38, 47, 70}
-Objective Value: 107046.84449809811
+Healthcenter deployed at 1: Communities Assigned = {54, 55, 56, 68, 89}
+Healthcenter deployed at 4: Communities Assigned = {1, 13, 19, 20, 29, 42, 70}
+Healthcenter deployed at 17: Communities Assigned = {48, 66, 69, 86, 94}
+Healthcenter deployed at 26: Communities Assigned = {8, 35, 37, 51, 62, 63, 77, 82, 99}
+Healthcenter deployed at 34: Communities Assigned = {16, 30, 60, 74, 76, 92}
+Healthcenter deployed at 38: Communities Assigned = {7, 22, 36, 38}
+Healthcenter deployed at 40: Communities Assigned = {5, 6, 18, 40, 88}
+Healthcenter deployed at 53: Communities Assigned = {2, 9, 31, 65, 67, 79, 84, 85}
+Healthcenter deployed at 57: Communities Assigned = {23, 32, 39, 57, 78, 100}
+Healthcenter deployed at 59: Communities Assigned = {14, 58, 59, 81, 95, 97, 98}
+Healthcenter deployed at 65: Communities Assigned = {11, 25, 44, 47, 53, 83}
+Healthcenter deployed at 72: Communities Assigned = {4, 26, 43, 45, 72, 73, 80, 93, 96}
+Healthcenter deployed at 78: Communities Assigned = {17, 21, 24, 34, 46, 50, 71}
+Healthcenter deployed at 93: Communities Assigned = {12, 15, 28, 49, 52, 64, 87, 90}
+Healthcenter deployed at 100: Communities Assigned = {3, 10, 27, 33, 41, 61, 75, 91}
+Objective Value: 34145.919873390434
 
 Stage-2:
-Route 1: Depot -> Healthcenter at 72 -> Healthcenter at 96 -> Healthcenter at 63 -> Healthcenter at 82 -> Healthcenter at 10 -> Healthcenter at 98 -> Healthcenter at 88 -> Healthcenter at 85 -> Healthcenter at 17 -> Healthcenter at 48 -> Healthcenter at 92 -> Healthcenter at 78 -> Healthcenter at 52 -> Healthcenter at 4 -> Healthcenter at 20 -> Depot
-Objective Value: 12618.88
+Route 1: Depot -> Healthcenter at 100 -> Healthcenter at 57 -> Healthcenter at 93 -> Healthcenter at 72 -> Healthcenter at 53 -> Healthcenter at 65 -> Healthcenter at 26 -> Healthcenter at 59 -> Healthcenter at 38 -> Healthcenter at 40 -> Healthcenter at 17 -> Healthcenter at 34 -> Healthcenter at 78 -> Healthcenter at 1 -> Healthcenter at 4 -> Depot
+Objective Value: 11813.20

@@ -1,0 +1,397 @@
+Removing old environment (if exists)...
+Transaction
+
+  Prefix: /scratch/users/eozlu21/micromamba/envs/sabanci-competition
+
+  Removing specs:
+
+   - _libgcc_mutex
+   - _openmp_mutex
+   - bzip2
+   - ca-certificates
+   - ld_impl_linux-64
+   - libexpat
+   - libffi
+   - libgcc
+   - libgcc-ng
+   - libgomp
+   - liblzma
+   - libnsl
+   - libsqlite
+   - libuuid
+   - libxcrypt
+   - libzlib
+   - ncurses
+   - openssl
+   - pip
+   - python
+   - readline
+   - setuptools
+   - tk
+   - tzdata
+   - wheel
+
+
+  Package               Version  Build               Channel           Size
+─────────────────────────────────────────────────────────────────────────────
+  Remove:
+─────────────────────────────────────────────────────────────────────────────
+
+  - _libgcc_mutex           0.1  conda_forge         conda-forge     Cached
+  - _openmp_mutex           4.5  2_gnu               conda-forge     Cached
+  - bzip2                 1.0.8  h4bc722e_7          conda-forge     Cached
+  - ca-certificates   2025.1.31  hbcca054_0          conda-forge     Cached
+  - ld_impl_linux-64       2.43  h712a8e2_4          conda-forge     Cached
+  - libexpat              2.7.0  h5888daf_0          conda-forge     Cached
+  - libffi                3.4.6  h2dba641_1          conda-forge     Cached
+  - libgcc               14.2.0  h767d61c_2          conda-forge     Cached
+  - libgcc-ng            14.2.0  h69a702a_2          conda-forge     Cached
+  - libgomp              14.2.0  h767d61c_2          conda-forge     Cached
+  - liblzma               5.8.1  hb9d3cd8_0          conda-forge     Cached
+  - libnsl                2.0.1  hd590300_0          conda-forge     Cached
+  - libsqlite            3.49.1  hee588c1_2          conda-forge     Cached
+  - libuuid              2.38.1  h0b41bf4_0          conda-forge     Cached
+  - libxcrypt            4.4.36  hd590300_1          conda-forge     Cached
+  - libzlib               1.3.1  hb9d3cd8_2          conda-forge     Cached
+  - ncurses                 6.5  h2d0b736_3          conda-forge     Cached
+  - openssl               3.5.0  h7b32b05_0          conda-forge     Cached
+  - pip                  25.0.1  pyh8b19718_0        conda-forge     Cached
+  - python              3.10.17  hd6af730_0_cpython  conda-forge     Cached
+  - readline                8.2  h8c095d6_2          conda-forge     Cached
+  - setuptools           78.1.0  pyhff2d567_0        conda-forge     Cached
+  - tk                   8.6.13  noxft_h4845f30_101  conda-forge     Cached
+  - tzdata                2025b  h78e105d_0          conda-forge     Cached
+  - wheel                0.45.1  pyhd8ed1ab_1        conda-forge     Cached
+
+  Summary:
+
+  Remove: 25 packages
+
+  Total download: 0 B
+
+─────────────────────────────────────────────────────────────────────────────
+
+
+
+Transaction starting
+Unlinking pip-25.0.1-pyh8b19718_0
+Unlinking wheel-0.45.1-pyhd8ed1ab_1
+Unlinking setuptools-78.1.0-pyhff2d567_0
+Unlinking python-3.10.17-hd6af730_0_cpython
+Unlinking tzdata-2025b-h78e105d_0
+Unlinking tk-8.6.13-noxft_h4845f30_101
+Unlinking readline-8.2-h8c095d6_2
+Unlinking openssl-3.5.0-h7b32b05_0
+Unlinking libxcrypt-4.4.36-hd590300_1
+Unlinking libuuid-2.38.1-h0b41bf4_0
+Unlinking libsqlite-3.49.1-hee588c1_2
+Unlinking libnsl-2.0.1-hd590300_0
+Unlinking liblzma-5.8.1-hb9d3cd8_0
+Unlinking libffi-3.4.6-h2dba641_1
+Unlinking libexpat-2.7.0-h5888daf_0
+Unlinking ld_impl_linux-64-2.43-h712a8e2_4
+Unlinking bzip2-1.0.8-h4bc722e_7
+Unlinking ncurses-6.5-h2d0b736_3
+Unlinking ca-certificates-2025.1.31-hbcca054_0
+Unlinking libzlib-1.3.1-hb9d3cd8_2
+Unlinking libgcc-ng-14.2.0-h69a702a_2
+Unlinking libgcc-14.2.0-h767d61c_2
+Unlinking _openmp_mutex-4.5-2_gnu
+Unlinking libgomp-14.2.0-h767d61c_2
+Unlinking _libgcc_mutex-0.1-conda_forge
+
+Transaction finished
+
+Environment removed at prefix: /scratch/users/eozlu21/micromamba/envs/sabanci-competition
+Creating micromamba environment: sabanci-competition
+conda-forge/linux-64                                        Using cache
+conda-forge/noarch                                          Using cache
+
+
+Transaction
+
+  Prefix: /scratch/users/eozlu21/micromamba/envs/sabanci-competition
+
+  Updating specs:
+
+   - python=3.10
+
+
+  Package               Version  Build               Channel           Size
+─────────────────────────────────────────────────────────────────────────────
+  Install:
+─────────────────────────────────────────────────────────────────────────────
+
+  + _libgcc_mutex           0.1  conda_forge         conda-forge     Cached
+  + _openmp_mutex           4.5  2_gnu               conda-forge     Cached
+  + bzip2                 1.0.8  h4bc722e_7          conda-forge     Cached
+  + ca-certificates   2025.1.31  hbcca054_0          conda-forge     Cached
+  + ld_impl_linux-64       2.43  h712a8e2_4          conda-forge     Cached
+  + libexpat              2.7.0  h5888daf_0          conda-forge     Cached
+  + libffi                3.4.6  h2dba641_1          conda-forge     Cached
+  + libgcc               14.2.0  h767d61c_2          conda-forge     Cached
+  + libgcc-ng            14.2.0  h69a702a_2          conda-forge     Cached
+  + libgomp              14.2.0  h767d61c_2          conda-forge     Cached
+  + liblzma               5.8.1  hb9d3cd8_0          conda-forge     Cached
+  + libnsl                2.0.1  hd590300_0          conda-forge     Cached
+  + libsqlite            3.49.1  hee588c1_2          conda-forge     Cached
+  + libuuid              2.38.1  h0b41bf4_0          conda-forge     Cached
+  + libxcrypt            4.4.36  hd590300_1          conda-forge     Cached
+  + libzlib               1.3.1  hb9d3cd8_2          conda-forge     Cached
+  + ncurses                 6.5  h2d0b736_3          conda-forge     Cached
+  + openssl               3.5.0  h7b32b05_0          conda-forge     Cached
+  + pip                  25.0.1  pyh8b19718_0        conda-forge     Cached
+  + python              3.10.17  hd6af730_0_cpython  conda-forge     Cached
+  + readline                8.2  h8c095d6_2          conda-forge     Cached
+  + setuptools           78.1.0  pyhff2d567_0        conda-forge     Cached
+  + tk                   8.6.13  noxft_h4845f30_101  conda-forge     Cached
+  + tzdata                2025b  h78e105d_0          conda-forge     Cached
+  + wheel                0.45.1  pyhd8ed1ab_1        conda-forge     Cached
+
+  Summary:
+
+  Install: 25 packages
+
+  Total download: 0 B
+
+─────────────────────────────────────────────────────────────────────────────
+
+
+
+Transaction starting
+Linking ld_impl_linux-64-2.43-h712a8e2_4
+Linking ca-certificates-2025.1.31-hbcca054_0
+Linking libgomp-14.2.0-h767d61c_2
+Linking _libgcc_mutex-0.1-conda_forge
+Linking _openmp_mutex-4.5-2_gnu
+Linking libgcc-14.2.0-h767d61c_2
+Linking ncurses-6.5-h2d0b736_3
+Linking libzlib-1.3.1-hb9d3cd8_2
+Linking libgcc-ng-14.2.0-h69a702a_2
+Linking libffi-3.4.6-h2dba641_1
+Linking openssl-3.5.0-h7b32b05_0
+Linking liblzma-5.8.1-hb9d3cd8_0
+Linking libexpat-2.7.0-h5888daf_0
+Linking readline-8.2-h8c095d6_2
+Linking libsqlite-3.49.1-hee588c1_2
+Linking tk-8.6.13-noxft_h4845f30_101
+Linking libxcrypt-4.4.36-hd590300_1
+Linking bzip2-1.0.8-h4bc722e_7
+Linking libuuid-2.38.1-h0b41bf4_0
+Linking libnsl-2.0.1-hd590300_0
+Linking tzdata-2025b-h78e105d_0
+Linking python-3.10.17-hd6af730_0_cpython
+Linking wheel-0.45.1-pyhd8ed1ab_1
+Linking setuptools-78.1.0-pyhff2d567_0
+Linking pip-25.0.1-pyh8b19718_0
+
+Transaction finished
+
+
+To activate this environment, use:
+
+    micromamba activate sabanci-competition
+
+Or to execute a single command in this environment, use:
+
+    micromamba run -n sabanci-competition mycommand
+
+Installing dependencies...
+Collecting absl-py==2.1.0 (from -r requirements.txt (line 1))
+  Using cached absl_py-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting accelerate==1.5.2 (from -r requirements.txt (line 2))
+  Using cached accelerate-1.5.2-py3-none-any.whl.metadata (19 kB)
+Collecting aiohappyeyeballs==2.6.1 (from -r requirements.txt (line 3))
+  Using cached aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiohttp==3.11.14 (from -r requirements.txt (line 4))
+  Using cached aiohttp-3.11.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
+Collecting aiosignal==1.3.2 (from -r requirements.txt (line 5))
+  Using cached aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Collecting anyio==4.7.0 (from -r requirements.txt (line 6))
+  Using cached anyio-4.7.0-py3-none-any.whl.metadata (4.7 kB)
+Collecting appnope==0.1.4 (from -r requirements.txt (line 7))
+  Using cached appnope-0.1.4-py2.py3-none-any.whl.metadata (908 bytes)
+Collecting argon2-cffi==23.1.0 (from -r requirements.txt (line 8))
+  Using cached argon2_cffi-23.1.0-py3-none-any.whl.metadata (5.2 kB)
+Collecting argon2-cffi-bindings==21.2.0 (from -r requirements.txt (line 9))
+  Using cached argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting arrow==1.3.0 (from -r requirements.txt (line 10))
+  Using cached arrow-1.3.0-py3-none-any.whl.metadata (7.5 kB)
+Collecting asttokens==2.4.1 (from -r requirements.txt (line 11))
+  Using cached asttokens-2.4.1-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting astunparse==1.6.3 (from -r requirements.txt (line 12))
+  Using cached astunparse-1.6.3-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting async-lru==2.0.4 (from -r requirements.txt (line 13))
+  Using cached async_lru-2.0.4-py3-none-any.whl.metadata (4.5 kB)
+Collecting attrs==24.3.0 (from -r requirements.txt (line 14))
+  Using cached attrs-24.3.0-py3-none-any.whl.metadata (11 kB)
+Collecting audioread==3.0.1 (from -r requirements.txt (line 15))
+  Using cached audioread-3.0.1-py3-none-any.whl.metadata (8.4 kB)
+Collecting babel==2.16.0 (from -r requirements.txt (line 16))
+  Using cached babel-2.16.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting beautifulsoup4==4.12.3 (from -r requirements.txt (line 17))
+  Using cached beautifulsoup4-4.12.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting black==25.1.0 (from -r requirements.txt (line 18))
+  Using cached black-25.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (81 kB)
+Collecting bleach==6.2.0 (from -r requirements.txt (line 19))
+  Using cached bleach-6.2.0-py3-none-any.whl.metadata (30 kB)
+Collecting certifi==2024.12.14 (from -r requirements.txt (line 20))
+  Using cached certifi-2024.12.14-py3-none-any.whl.metadata (2.3 kB)
+Collecting cffi==1.17.1 (from -r requirements.txt (line 21))
+  Using cached cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting cfgv==3.4.0 (from -r requirements.txt (line 22))
+  Using cached cfgv-3.4.0-py2.py3-none-any.whl.metadata (8.5 kB)
+Collecting chardet==5.2.0 (from -r requirements.txt (line 23))
+  Using cached chardet-5.2.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting charset-normalizer==3.4.0 (from -r requirements.txt (line 24))
+  Using cached charset_normalizer-3.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (34 kB)
+Collecting click==8.1.7 (from -r requirements.txt (line 25))
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting cloudpickle==3.1.1 (from -r requirements.txt (line 26))
+  Using cached cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting cloup==3.0.5 (from -r requirements.txt (line 27))
+  Using cached cloup-3.0.5-py2.py3-none-any.whl.metadata (6.7 kB)
+Collecting colorama==0.4.6 (from -r requirements.txt (line 28))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting comm==0.2.2 (from -r requirements.txt (line 29))
+  Downloading comm-0.2.2-py3-none-any.whl.metadata (3.7 kB)
+Collecting contourpy==1.3.1 (from -r requirements.txt (line 30))
+  Downloading contourpy-1.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.4 kB)
+Collecting coverage==7.8.0 (from -r requirements.txt (line 31))
+  Downloading coverage-7.8.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+Collecting cycler==0.12.1 (from -r requirements.txt (line 32))
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting Cython==3.0.11 (from -r requirements.txt (line 33))
+  Downloading Cython-3.0.11-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+Collecting DataProperty==1.1.0 (from -r requirements.txt (line 34))
+  Using cached DataProperty-1.1.0-py3-none-any.whl.metadata (11 kB)
+Collecting datasets==3.4.1 (from -r requirements.txt (line 35))
+  Using cached datasets-3.4.1-py3-none-any.whl.metadata (19 kB)
+Collecting debugpy==1.8.9 (from -r requirements.txt (line 36))
+  Downloading debugpy-1.8.9-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.1 kB)
+Collecting decorator==5.1.1 (from -r requirements.txt (line 37))
+  Downloading decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting defusedxml==0.7.1 (from -r requirements.txt (line 38))
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting dill==0.3.8 (from -r requirements.txt (line 39))
+  Using cached dill-0.3.8-py3-none-any.whl.metadata (10 kB)
+Collecting diskcache==5.6.3 (from -r requirements.txt (line 40))
+  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
+Collecting distlib==0.3.9 (from -r requirements.txt (line 41))
+  Downloading distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
+Collecting engineering-notation==0.10.0 (from -r requirements.txt (line 42))
+  Downloading engineering_notation-0.10.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting et_xmlfile==2.0.0 (from -r requirements.txt (line 43))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting evaluate==0.4.3 (from -r requirements.txt (line 44))
+  Using cached evaluate-0.4.3-py3-none-any.whl.metadata (9.2 kB)
+Collecting execnet==2.1.1 (from -r requirements.txt (line 45))
+  Downloading execnet-2.1.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting executing==2.1.0 (from -r requirements.txt (line 46))
+  Downloading executing-2.1.0-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting fastjsonschema==2.21.1 (from -r requirements.txt (line 47))
+  Downloading fastjsonschema-2.21.1-py3-none-any.whl.metadata (2.2 kB)
+Collecting filelock==3.17.0 (from -r requirements.txt (line 48))
+  Downloading filelock-3.17.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting flatbuffers==25.1.24 (from -r requirements.txt (line 49))
+  Downloading flatbuffers-25.1.24-py2.py3-none-any.whl.metadata (875 bytes)
+Collecting fonttools==4.55.0 (from -r requirements.txt (line 50))
+  Downloading fonttools-4.55.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (164 kB)
+Collecting fqdn==1.5.1 (from -r requirements.txt (line 51))
+  Downloading fqdn-1.5.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting frozenlist==1.5.0 (from -r requirements.txt (line 52))
+  Downloading frozenlist-1.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (13 kB)
+Collecting fsspec==2024.12.0 (from -r requirements.txt (line 53))
+  Using cached fsspec-2024.12.0-py3-none-any.whl.metadata (11 kB)
+Collecting gast==0.6.0 (from -r requirements.txt (line 54))
+  Downloading gast-0.6.0-py3-none-any.whl.metadata (1.3 kB)
+Collecting glcontext==3.0.0 (from -r requirements.txt (line 55))
+  Downloading glcontext-3.0.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.0 kB)
+Collecting google-pasta==0.2.0 (from -r requirements.txt (line 56))
+  Downloading google_pasta-0.2.0-py3-none-any.whl.metadata (814 bytes)
+Collecting grpcio==1.70.0 (from -r requirements.txt (line 57))
+  Downloading grpcio-1.70.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.9 kB)
+Collecting gurobipy==12.0.0 (from -r requirements.txt (line 58))
+  Downloading gurobipy-12.0.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (15 kB)
+Collecting h11==0.14.0 (from -r requirements.txt (line 59))
+  Using cached h11-0.14.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting h5py==3.12.1 (from -r requirements.txt (line 60))
+  Downloading h5py-3.12.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting httpcore==1.0.7 (from -r requirements.txt (line 61))
+  Using cached httpcore-1.0.7-py3-none-any.whl.metadata (21 kB)
+Collecting httpx==0.28.1 (from -r requirements.txt (line 62))
+  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting huggingface-hub==0.29.3 (from -r requirements.txt (line 63))
+  Using cached huggingface_hub-0.29.3-py3-none-any.whl.metadata (13 kB)
+Collecting identify==2.6.9 (from -r requirements.txt (line 64))
+  Downloading identify-2.6.9-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting idna==3.10 (from -r requirements.txt (line 65))
+  Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting iniconfig==2.1.0 (from -r requirements.txt (line 66))
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting ipykernel==6.29.5 (from -r requirements.txt (line 67))
+  Downloading ipykernel-6.29.5-py3-none-any.whl.metadata (6.3 kB)
+Collecting ipython==8.29.0 (from -r requirements.txt (line 68))
+  Downloading ipython-8.29.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting isoduration==20.11.0 (from -r requirements.txt (line 69))
+  Downloading isoduration-20.11.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting isosurfaces==0.1.2 (from -r requirements.txt (line 70))
+  Downloading isosurfaces-0.1.2-py3-none-any.whl.metadata (3.3 kB)
+Collecting jedi==0.19.2 (from -r requirements.txt (line 71))
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting Jinja2==3.1.5 (from -r requirements.txt (line 72))
+  Downloading jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Collecting joblib==1.4.2 (from -r requirements.txt (line 73))
+  Using cached joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting json5==0.10.0 (from -r requirements.txt (line 74))
+  Downloading json5-0.10.0-py3-none-any.whl.metadata (34 kB)
+Collecting jsonlines==4.0.0 (from -r requirements.txt (line 75))
+  Using cached jsonlines-4.0.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting jsonpointer==3.0.0 (from -r requirements.txt (line 76))
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema==4.23.0 (from -r requirements.txt (line 77))
+  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r requirements.txt (line 78))
+  Downloading jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting jupyter-events==0.11.0 (from -r requirements.txt (line 79))
+  Downloading jupyter_events-0.11.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting jupyter-lsp==2.2.5 (from -r requirements.txt (line 80))
+  Downloading jupyter_lsp-2.2.5-py3-none-any.whl.metadata (1.8 kB)
+Collecting jupyter_client==8.6.3 (from -r requirements.txt (line 81))
+  Downloading jupyter_client-8.6.3-py3-none-any.whl.metadata (8.3 kB)
+Collecting jupyter_core==5.7.2 (from -r requirements.txt (line 82))
+  Downloading jupyter_core-5.7.2-py3-none-any.whl.metadata (3.4 kB)
+Collecting jupyter_server==2.15.0 (from -r requirements.txt (line 83))
+  Downloading jupyter_server-2.15.0-py3-none-any.whl.metadata (8.4 kB)
+Collecting jupyter_server_terminals==0.5.3 (from -r requirements.txt (line 84))
+  Downloading jupyter_server_terminals-0.5.3-py3-none-any.whl.metadata (5.6 kB)
+Collecting jupyterlab==4.3.4 (from -r requirements.txt (line 85))
+  Downloading jupyterlab-4.3.4-py3-none-any.whl.metadata (16 kB)
+Collecting jupyterlab_pygments==0.3.0 (from -r requirements.txt (line 86))
+  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting jupyterlab_server==2.27.3 (from -r requirements.txt (line 87))
+  Downloading jupyterlab_server-2.27.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting keras==3.8.0 (from -r requirements.txt (line 88))
+  Downloading keras-3.8.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting kiwisolver==1.4.7 (from -r requirements.txt (line 89))
+  Downloading kiwisolver-1.4.7-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (6.3 kB)
+Collecting lazy_loader==0.4 (from -r requirements.txt (line 90))
+  Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Collecting libclang==18.1.1 (from -r requirements.txt (line 91))
+  Downloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl.metadata (5.2 kB)
+Collecting librosa==0.10.2.post1 (from -r requirements.txt (line 92))
+  Downloading librosa-0.10.2.post1-py3-none-any.whl.metadata (8.6 kB)
+Collecting llvmlite==0.44.0 (from -r requirements.txt (line 93))
+  Downloading llvmlite-0.44.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.8 kB)
+Collecting lxml==5.3.1 (from -r requirements.txt (line 94))
+  Downloading lxml-5.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.7 kB)
+Collecting manim==0.18.1 (from -r requirements.txt (line 95))
+  Downloading manim-0.18.1-py3-none-any.whl.metadata (10 kB)
+Collecting ManimPango==0.6.0 (from -r requirements.txt (line 96))
+  Downloading manimpango-0.6.0.tar.gz (4.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 1.2 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'error'
+Running main.py...

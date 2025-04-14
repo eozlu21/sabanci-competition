@@ -1,0 +1,8 @@
+/var/spool/slurm/d/job2315310/slurm_script: line 1: 165825 Süreç durduruldu      ( "/scratch/users/eozlu21/.local/bin/micromamba" "${@}" )
+critical libmamba Cannot activate, prefix does not exist at: '/scratch/users/eozlu21/micromamba/envs/sabanci-competition'
+/var/spool/slurm/d/job2315310/slurm_script: line 32: pip: komut yok
+  File "main.py", line 11
+    def _solve_and_save_results_part_one(instance_index: int) -> None:
+                                                       ^
+SyntaxError: invalid syntax
+slurmstepd: error: Detected 1 oom_kill event in StepId=2315310.batch. Some of the step tasks have been OOM Killed.

@@ -1,0 +1,47 @@
+Stage-1:
+Healthcenter deployed at 7: Communities Assigned = {7, 75, 85, 88, 137}
+Healthcenter deployed at 9: Communities Assigned = {24, 58, 87, 119, 129}
+Healthcenter deployed at 11: Communities Assigned = {11, 110, 115, 134, 154}
+Healthcenter deployed at 13: Communities Assigned = {13, 43, 62, 76, 81, 122, 135, 173, 177, 195}
+Healthcenter deployed at 21: Communities Assigned = {21, 113, 131, 170}
+Healthcenter deployed at 22: Communities Assigned = {22, 51, 52, 77, 165}
+Healthcenter deployed at 25: Communities Assigned = {25, 50, 65, 83}
+Healthcenter deployed at 31: Communities Assigned = {6, 31, 37, 101, 128}
+Healthcenter deployed at 36: Communities Assigned = {5, 15, 61, 124}
+Healthcenter deployed at 47: Communities Assigned = {4, 18, 36, 44, 47, 78, 155, 171, 172, 176}
+Healthcenter deployed at 55: Communities Assigned = {8, 55, 59, 66, 121}
+Healthcenter deployed at 62: Communities Assigned = {69, 98, 123, 145, 152}
+Healthcenter deployed at 70: Communities Assigned = {27, 45, 63, 70, 84, 107}
+Healthcenter deployed at 71: Communities Assigned = {99, 139, 184, 194}
+Healthcenter deployed at 72: Communities Assigned = {14, 48, 72, 186}
+Healthcenter deployed at 74: Communities Assigned = {64, 73, 74, 86, 151}
+Healthcenter deployed at 80: Communities Assigned = {12, 28, 42, 80, 142, 180}
+Healthcenter deployed at 89: Communities Assigned = {54, 60, 68, 89, 102, 185}
+Healthcenter deployed at 92: Communities Assigned = {30, 40, 91, 92, 94, 141, 166, 193, 200}
+Healthcenter deployed at 104: Communities Assigned = {29, 104, 125}
+Healthcenter deployed at 106: Communities Assigned = {1, 10, 114, 126}
+Healthcenter deployed at 109: Communities Assigned = {35, 39, 103, 109}
+Healthcenter deployed at 117: Communities Assigned = {9, 90, 117, 175, 182, 191}
+Healthcenter deployed at 120: Communities Assigned = {2, 82, 106, 127}
+Healthcenter deployed at 133: Communities Assigned = {46, 79, 116, 133, 192}
+Healthcenter deployed at 140: Communities Assigned = {41, 108, 132, 140, 196}
+Healthcenter deployed at 143: Communities Assigned = {3, 32, 34, 71, 143}
+Healthcenter deployed at 144: Communities Assigned = {38, 57, 144, 187}
+Healthcenter deployed at 153: Communities Assigned = {19, 112, 136, 138, 153, 164}
+Healthcenter deployed at 158: Communities Assigned = {53, 158}
+Healthcenter deployed at 164: Communities Assigned = {49, 96, 105, 161}
+Healthcenter deployed at 166: Communities Assigned = {93, 100, 118, 148, 156, 163, 181}
+Healthcenter deployed at 167: Communities Assigned = {56, 130, 147, 162, 167, 188}
+Healthcenter deployed at 169: Communities Assigned = {26, 157, 169, 183, 190}
+Healthcenter deployed at 171: Communities Assigned = {17, 33, 97}
+Healthcenter deployed at 172: Communities Assigned = {20, 150, 160, 199}
+Healthcenter deployed at 174: Communities Assigned = {23, 95, 111, 174, 179, 198}
+Healthcenter deployed at 178: Communities Assigned = {16, 159, 178}
+Healthcenter deployed at 189: Communities Assigned = {67, 120, 146, 149, 168, 189}
+Healthcenter deployed at 197: Communities Assigned = {197}
+Objective Value: 21840.646144287944
+
+Stage-2:
+Route 1: Depot -> Healthcenter at 13 -> Depot
+Route 2: Depot -> Healthcenter at 89 -> Healthcenter at 174 -> Healthcenter at 166 -> Healthcenter at 167 -> Healthcenter at 80 -> Healthcenter at 143 -> Healthcenter at 109 -> Healthcenter at 71 -> Healthcenter at 7 -> Healthcenter at 74 -> Healthcenter at 70 -> Healthcenter at 144 -> Healthcenter at 133 -> Healthcenter at 9 -> Healthcenter at 164 -> Healthcenter at 117 -> Healthcenter at 169 -> Healthcenter at 22 -> Healthcenter at 153 -> Healthcenter at 72 -> Healthcenter at 92 -> Healthcenter at 36 -> Healthcenter at 140 -> Healthcenter at 47 -> Healthcenter at 21 -> Healthcenter at 197 -> Healthcenter at 171 -> Healthcenter at 189 -> Healthcenter at 120 -> Healthcenter at 172 -> Healthcenter at 25 -> Healthcenter at 106 -> Healthcenter at 158 -> Healthcenter at 104 -> Healthcenter at 62 -> Healthcenter at 55 -> Healthcenter at 178 -> Healthcenter at 11 -> Healthcenter at 31 -> Depot
+Objective Value: 20017.20
