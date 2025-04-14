@@ -55,4 +55,6 @@ def build_part_two_model(instance: HealthCenterInstancePartTwo) -> gp.Model:
         name="mtz",
     )
 
+    model.setParam("MIPGap", 0.02)
+
     return model

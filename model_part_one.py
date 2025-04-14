@@ -146,4 +146,6 @@ def build_part_one_model(instance: HealthCenterInstancePartOne) -> gp.Model:
     x_init, y_init = build_capacity_feasible_init(instance)
     apply_initial_solution_to_model(x, y, x_init, y_init)
 
+    model.setParam("MIPGap", 0.05)
+
     return model
