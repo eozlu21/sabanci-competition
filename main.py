@@ -3,6 +3,7 @@ from gurobipy import GRB
 from health_center_instance import (
     HealthCenterInstancePartOne,
     HealthCenterInstancePartTwo,
+    CustomTerminationCallback,
 )
 from model_part_one import build_part_one_model
 from model_part_two import build_part_two_model
@@ -15,7 +16,8 @@ def _solve_and_save_results_part_one(instance_index: int) -> None:
     model = build_part_one_model(instance)
     print("Model built successfully.")
     print("Solving...")
-    model.optimize()
+    callback = CustomTerminationCallback()
+    model.optimize(callback)
 
     if model.status == GRB.OPTIMAL or model.status == GRB.INTERRUPTED:
         deployed_centers = [
@@ -134,7 +136,8 @@ def _solve_and_save_results_part_two(instance_index: int) -> None:
     )
 
     model = build_part_two_model(instance)
-    model.optimize()
+    callback = CustomTerminationCallback()
+    model.optimize(callback)
 
     if model.status == GRB.OPTIMAL or model.status == GRB.INTERRUPTED:
         print("Objective Value:", model.ObjVal)
@@ -165,7 +168,8 @@ if __name__ == "__main__":
     # You can run part one and two consecutively or only run part two.
 
     NUM_INSTANCES = 25
-    for i in range(9, NUM_INSTANCES):
+    for i in range(10, NUM_INSTANCES):
         print(f"Solving instance {i}...")
+        print("=" * 30)
         solve_and_save_results(i)
         print(f"Instance {i} solved and results saved.")

@@ -135,3 +135,45 @@ class Distances:
 
     def __getitem__(self, key: tuple[int, int]) -> float:
         return self.distances[key]
+
+
+import time
+import gurobipy as gp
+from gurobipy import GRB
+
+
+class CustomTerminationCallback:
+    def __init__(
+        self, improvement_threshold=0.01, time_limit=3600, mip_gap_threshold=0.15
+    ):
+        self.improvement_threshold = improvement_threshold  # 1% improvement
+        self.time_limit = time_limit  # 1 hour in seconds
+        self.mip_gap_threshold = mip_gap_threshold  # 15% gap
+        self.last_improvement_time = time.time()
+        self.best_obj = float("inf")
+
+    def __call__(self, model, where):
+        if where == GRB.Callback.MIP:
+            current_time = time.time()
+            try:
+                best_obj = model.cbGet(GRB.Callback.MIP_OBJBST)
+                best_bound = model.cbGet(GRB.Callback.MIP_OBJBND)
+            except gp.GurobiError:
+                return  # In case attributes are not available yet
+
+            # Check for improvement
+            if best_obj < self.best_obj * (1 - self.improvement_threshold):
+                self.best_obj = best_obj
+                self.last_improvement_time = current_time
+
+            # Check time since last improvement
+            if current_time - self.last_improvement_time > self.time_limit:
+                print("Terminating: No significant improvement in the last hour.")
+                model.terminate()
+
+            # Check MIP gap
+            if abs(best_obj) > 1e-10:  # Avoid division by zero
+                mip_gap = abs(best_obj - best_bound) / abs(best_obj)
+                if mip_gap <= self.mip_gap_threshold:
+                    print(f"Terminating: MIP gap {mip_gap:.2%} is within threshold.")
+                    model.terminate()
