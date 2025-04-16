@@ -165,7 +165,7 @@ if __name__ == "__main__":
     # You can run part one and two consecutively or only run part two.
 
     NUM_INSTANCES = 25
-    for i in range(7, NUM_INSTANCES):
+    for i in range(9, NUM_INSTANCES):
         print(f"Solving instance {i}...")
         solve_and_save_results(i)
         print(f"Instance {i} solved and results saved.")
