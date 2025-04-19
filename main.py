@@ -52,7 +52,9 @@ def save_results_to_file_part_one(
     with open(filename, "w") as f:
         f.write("Stage-1:\n")
         for i in deployed_centers:
-            communities = ", ".join(str(j + 1) for j in sorted(assignment_map[i]))
+            # if i somehow isn’t in assignment_map, fall back to empty list
+            assigned = assignment_map.get(i, [])
+            communities = ", ".join(str(j + 1) for j in sorted(assigned))
             f.write(
                 f"Healthcenter deployed at {i + 1}: Communities Assigned = {{{communities}}}\n"
             )
@@ -168,7 +170,7 @@ if __name__ == "__main__":
     # You can run part one and two consecutively or only run part two.
 
     NUM_INSTANCES = 25
-    for i in range(21, NUM_INSTANCES):
+    for i in range(23, NUM_INSTANCES):
         print(f"Solving instance {i}...")
         print("=" * 30)
         solve_and_save_results(i)

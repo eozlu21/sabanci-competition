@@ -144,10 +144,10 @@ from gurobipy import GRB
 
 class CustomTerminationCallback:
     def __init__(
-        self, improvement_threshold=0.02, time_limit=3600, mip_gap_threshold=0.25
+        self, improvement_threshold=0.01, time_limit=5400, mip_gap_threshold=0.25
     ):
-        self.improvement_threshold = improvement_threshold  # 2% improvement
-        self.time_limit = time_limit  # 1 hour in seconds
+        self.improvement_threshold = improvement_threshold  # 1% improvement
+        self.time_limit = time_limit  # 1.5 hours in seconds
         self.mip_gap_threshold = mip_gap_threshold  # 25% gap
         self.last_improvement_time = time.time()
         self.best_obj = float("inf")
