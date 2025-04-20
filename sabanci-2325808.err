@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/scratch/users/eozlu21/sabanci-competition/main.py", line 176, in <module>
+    solve_and_save_results(i)
+  File "/scratch/users/eozlu21/sabanci-competition/main.py", line 165, in solve_and_save_results
+    _solve_and_save_results_part_one(instance_index)
+  File "/scratch/users/eozlu21/sabanci-competition/main.py", line 23, in _solve_and_save_results_part_one
+    deployed_centers = [
+  File "/scratch/users/eozlu21/sabanci-competition/main.py", line 26, in <listcomp>
+    if model.getVarByName(f"x[{i}]").X > 0.5
+  File "src/gurobipy/var.pxi", line 128, in gurobipy._core.Var.__getattr__
+  File "src/gurobipy/var.pxi", line 156, in gurobipy._core.Var.getAttr
+  File "src/gurobipy/_attrutil.pyx", line 117, in gurobipy._attrutil._getattr
+AttributeError: Unable to retrieve attribute 'X'. Did you mean: 'Xn'?
