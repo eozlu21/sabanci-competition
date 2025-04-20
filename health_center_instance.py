@@ -177,3 +177,36 @@ class CustomTerminationCallback:
                 if mip_gap <= self.mip_gap_threshold:
                     print(f"Terminating: MIP gap {mip_gap:.2%} is within threshold.")
                     model.terminate()
+
+import time
+from gurobipy import GRB
+
+class TimeAfterFirstSolutionCallback:
+    """
+    Terminates the model t seconds after the first incumbent solution is found.
+    """
+    def __init__(self, time_after_first_solution: float = 3600):
+        self.time_after_first_solution = time_after_first_solution
+        self.first_solution_time: float | None = None
+
+    def __call__(self, model: gp.Model, where: int):
+        if where == GRB.Callback.MIP:
+            # Try to get the current best incumbent objective
+            try:
+                best_obj = model.cbGet(GRB.Callback.MIP_OBJBST)
+            except Exception:
+                return
+
+            # If no incumbent yet, cbGet returns infinity; skip until a real solution appears
+            if best_obj < float('inf'):
+                now = time.time()
+                # Record the moment of the first real solution
+                if self.first_solution_time is None:
+                    self.first_solution_time = now
+                # If enough time has passed since that first solution, terminate
+                elif now - self.first_solution_time >= self.time_after_first_solution:
+                    print(
+                        f"Terminating: {self.time_after_first_solution:.0f}s elapsed "
+                        "since first incumbent solution."
+                    )
+                    model.terminate()
