@@ -1,178 +1,111 @@
+import sys
+from pathlib import Path
+
 from gurobipy import GRB
 
 from health_center_instance import (
     HealthCenterInstancePartOne,
-    HealthCenterInstancePartTwo,
-    CustomTerminationCallback,
-    TimeAfterFirstSolutionCallback,
+    Distances,
+    CombinedTerminationCallback,
 )
 from model_part_one import build_part_one_model
-from model_part_two import build_part_two_model
+
+# Enable verbose logging if '-verbose' flag is passed
+VERBOSE = "-verbose" in sys.argv
 
 
-def _solve_and_save_results_part_one(instance_index: int) -> None:
-    print("Creating model for instance:", instance_index)
-    instance = HealthCenterInstancePartOne(f"instances/Instance_{instance_index}.txt")
-    print("Building model...")
-    model = build_part_one_model(instance)
-    print("Model built successfully.")
-    print("Solving...")
-    callback = TimeAfterFirstSolutionCallback()
-    model.optimize(callback)
+def solve_instance(instance_path: Path, output_path: Path) -> None:
+    inst = HealthCenterInstancePartOne(str(instance_path))
+    model = build_part_one_model(inst)
 
-    if model.status == GRB.OPTIMAL or model.status == GRB.INTERRUPTED:
-        deployed_centers = [
-            i
-            for i in range(instance.num_communities)
-            if model.getVarByName(f"x[{i}]").X > 0.5
-        ]
+    model.optimize(CombinedTerminationCallback())
 
-        # Map: center i → assigned communities j
-        assignment_map = {i: [] for i in deployed_centers}
-        for i in deployed_centers:
-            for j in range(instance.num_communities):
-                if model.getVarByName(f"y[{i},{j}]").X > 0.5:
-                    assignment_map[i].append(j)
+    if model.status not in (GRB.OPTIMAL, GRB.INTERRUPTED):
+        print(f"{instance_path.name}: no solution")
+        return
 
-        save_results_to_file_part_one(
-            f"instances/Sol_Instance_{instance_index}.txt",
-            deployed_centers,
-            assignment_map,
-            model.getVarByName("D").X,
-        )
-    else:
-        print("Model did not solve to optimality.")
+    N = inst.num_communities
+    deployed = [i for i in range(N) if model.getVarByName(f"x[{i}]").X > 0.5]
+    assignment = {i: [] for i in deployed}
+    for i in deployed:
+        for j in range(N):
+            if model.getVarByName(f"y[{i},{j}]").X > 0.5:
+                assignment[i].append(j)
 
+    obj_val = model.getVarByName("D").X
 
-def save_results_to_file_part_one(
-    filename: str,
-    deployed_centers: list[int],
-    assignment_map: dict[int, list[int]],
-    objective_value: float,
-) -> None:
-    with open(filename, "w") as f:
-        f.write("Stage-1:\n")
-        for i in deployed_centers:
-            # if i somehow isn’t in assignment_map, fall back to empty list
-            assigned = assignment_map.get(i, [])
-            communities = ", ".join(str(j + 1) for j in sorted(assigned))
+    pop = [node["population"] for node in inst.nodes]
+    workloads = [sum(pop[j] for j in assignment[i]) for i in deployed]
+    wl_min, wl_max = min(workloads), max(workloads)
+    alpha = round(sum(pop) / (5 * inst.num_health_centers))
+
+    dist = Distances(inst)
+    dists = [dist[i, j] for i in deployed for j in assignment[i]]
+    d_min, d_max = min(dists), max(dists)
+    beta = max(dist[i, j] for i in range(N) for j in range(i)) / 5
+
+    # write standard solution
+    with open(output_path, "w") as f:
+        for i in deployed:
+            comms = ", ".join(str(j + 1) for j in sorted(assignment[i]))
             f.write(
-                f"Healthcenter deployed at {i + 1}: Communities Assigned = {{{communities}}}\n"
+                f"Healthcenter deployed at {i + 1}: Communities Assigned = {{{comms}}}\n"
             )
-        f.write(f"Objective Value: {objective_value}\n")
-
-
-def extract_all_routes(model, M: int) -> list[list[int]]:
-    """Extract all routes by checking every z[0,k] arc from the depot."""
-    routes = []
-    # All indices: 0 represents depot.
-    for k in range(1, M):
-        var = model.getVarByName(f"z[0,{k}]")
-        if var is not None and var.X > 0.5:
-            route = [0, k]
-            current = k
-            while True:
-                next_node = None
-                # For the current node, find an outgoing arc with value > 0.5.
-                for j in range(M):
-                    if j != current:
-                        var_next = model.getVarByName(f"z[{current},{j}]")
-                        if var_next is not None and var_next.X > 0.5:
-                            next_node = j
-                            break
-                if next_node is None:
-                    break  # In case no outgoing arc is found.
-                route.append(next_node)
-                if next_node == 0:
-                    break  # Completed a cycle back to depot.
-                current = next_node
-            routes.append(route)
-    return routes
-
-
-def append_results_to_file_part_two(
-    filename: str,
-    routes: list[list[int]],
-    objective_value: float,
-    instance: HealthCenterInstancePartTwo,
-) -> None:
-    # Read the existing file to determine if a Stage-2 block exists.
-    try:
-        with open(filename, "r") as f:
-            content = f.read()
-    except FileNotFoundError:
-        content = ""
-
-    stage2_marker = "Stage-2:"
-    if stage2_marker in content:
-        # Remove Stage-2 and everything after it while preserving Stage-1.
-        content = content.split(stage2_marker)[0].rstrip()
-        file_mode = "w"
-    else:
-        file_mode = "a"
-
-    with open(filename, file_mode) as f:
-        if file_mode == "w":
-            f.write(content + "\n\n")
-        else:
-            f.write("\n")  # Blank line for separation when appending.
-        f.write("Stage-2:\n")
-        # For each route, build its description.
-        for idx, route in enumerate(routes, start=1):
-            route_description = []
-            for node in route:
-                if node == 0:
-                    route_description.append("Depot")
-                else:
-                    # instance.assignments[node][0] corresponds to the healthcenter id from part one.
-                    route_description.append(
-                        f"Healthcenter at {instance.assignments[node][0]}"
-                    )
-            f.write(f"Route {idx}: {' -> '.join(route_description)}\n")
-        f.write(f"Objective Value: {objective_value:.2f}\n")
-
-
-def _solve_and_save_results_part_two(instance_index: int) -> None:
-    instance = HealthCenterInstancePartTwo(
-        f"instances/Instance_{instance_index}.txt",
-        f"instances/Sol_Instance_{instance_index}.txt",
-    )
-
-    model = build_part_two_model(instance)
-    callback = TimeAfterFirstSolutionCallback()
-    model.optimize(callback)
-
-    if model.status == GRB.OPTIMAL or model.status == GRB.INTERRUPTED:
-        print("Objective Value:", model.ObjVal)
-        M = instance.num_health_centers + 1  # Total nodes including depot.
-        routes = extract_all_routes(model, M)
-
-        # Optionally, print out all decision variables.
-        for v in model.getVars():
-            print(v.VarName, ":", v.X)
-
-        # Write (or overwrite) the Stage-2 results in the solution file.
-        append_results_to_file_part_two(
-            f"instances/Sol_Instance_{instance_index}.txt",
-            routes,
-            model.ObjVal,
-            instance,
+        f.write(f"\nObjective Value: {obj_val:.10f}\n\n")
+        f.write("Workload Fairness Check:\n")
+        f.write(
+            f"  Min workload = {wl_min:.2f}, Max workload = {wl_max:.2f}\n"
+            f"  Workload Gap = {wl_max - wl_min:.2f} (Threshold Alpha = {alpha})\n"
         )
-    else:
-        print("Model did not solve to optimality.")
+        f.write("\n\n")
+        f.write("Distance Fairness Check:\n")
+        f.write(
+            f"  Min Distance = {d_min:.2f}, Max Distance = {d_max:.2f}\n"
+            f"  Distance Gap = {d_max - d_min:.2f} (Threshold Beta = {beta})\n"
+        )
+
+    # verbose: write detailed vars & constraints
+    if VERBOSE:
+        vars_path = output_path.with_name(output_path.stem + "_vars.txt")
+        with open(vars_path, "w") as vf:
+            vf.write("# Variable values:\n")
+            for v in model.getVars():
+                vf.write(f"{v.VarName} = {v.X}\n")
+            vf.write("\n# Constraints and evaluated LHS vs RHS:\n")
+            for c in model.getConstrs():
+                row = model.getRow(c)
+                n = row.size()
+                terms = []
+                for k in range(n):
+                    var_k = row.getVar(k)
+                    coef_k = row.getCoeff(k)
+                    terms.append(f"{coef_k}*{var_k.VarName}")
+                expr = " + ".join(terms)
+                sense = (
+                    "<="
+                    if c.Sense == GRB.LESS_EQUAL
+                    else "==" if c.Sense == GRB.EQUAL else ">="
+                )
+                rhs = c.RHS
+                lhs_val = sum(row.getCoeff(i) * row.getVar(i).X for i in range(n))
+                vf.write(f"{expr} {sense} {rhs}\n")
+                vf.write(f"{lhs_val} {sense} {rhs}\n\n")
+        print(f"Verbose log written to {vars_path}")
 
 
-def solve_and_save_results(instance_index: int) -> None:
-    _solve_and_save_results_part_one(instance_index)
-    _solve_and_save_results_part_two(instance_index)
+def main() -> None:
+    instances_dir = Path("FINAL_ROUND_INSTANCES_OPTCHAL2025")
+    if not instances_dir.is_dir():
+        print("instances directory not found")
+        sys.exit(1)
+
+    for inst_path in sorted(instances_dir.glob("Instance_*.txt")):
+        idx = inst_path.stem.split("_")[1]
+        out_path = instances_dir / f"Sol_Instance_{idx}.txt"
+        print(f"Solving {inst_path.name} …")
+        solve_instance(inst_path, out_path)
+        print(f"Saved → {out_path.name}")
 
 
 if __name__ == "__main__":
-    # You can run part one and two consecutively or only run part two.
-
-    NUM_INSTANCES = 25
-    for i in range(24, NUM_INSTANCES):
-        print(f"Solving instance {i}...")
-        print("=" * 30)
-        solve_and_save_results(i)
-        print(f"Instance {i} solved and results saved.")
+    main()

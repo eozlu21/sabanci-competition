@@ -37,4 +37,4 @@ fi
 
 # Run your Python script
 echo "Running main.py..."
-python main.py
+python old_main.py

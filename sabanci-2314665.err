@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/scratch/users/eozlu21/sabanci-competition/main.py", line 1, in <module>
-    from gurobipy import GRB
-ModuleNotFoundError: No module named 'gurobipy'

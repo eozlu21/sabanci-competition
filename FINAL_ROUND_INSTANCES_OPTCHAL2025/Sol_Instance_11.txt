@@ -1,0 +1,61 @@
+Healthcenter deployed at 4: Communities Assigned = {30, 39, 54, 86, 128, 232, 236}
+Healthcenter deployed at 22: Communities Assigned = {133, 149, 226, 257, 287}
+Healthcenter deployed at 46: Communities Assigned = {46, 68, 90, 178, 220}
+Healthcenter deployed at 56: Communities Assigned = {56, 59, 69, 87, 105}
+Healthcenter deployed at 57: Communities Assigned = {47, 70, 120, 167, 207, 215, 268}
+Healthcenter deployed at 70: Communities Assigned = {19, 31, 44, 91, 119, 297}
+Healthcenter deployed at 74: Communities Assigned = {12, 74, 88, 256, 280}
+Healthcenter deployed at 76: Communities Assigned = {23, 36, 55, 123, 192, 284, 293}
+Healthcenter deployed at 80: Communities Assigned = {60, 101, 130, 156, 199, 222, 260}
+Healthcenter deployed at 81: Communities Assigned = {176, 187, 198, 227, 229}
+Healthcenter deployed at 82: Communities Assigned = {29, 82, 121, 238, 270}
+Healthcenter deployed at 89: Communities Assigned = {40, 106, 158, 171, 211, 221, 282}
+Healthcenter deployed at 104: Communities Assigned = {8, 50, 66, 104, 139, 247}
+Healthcenter deployed at 112: Communities Assigned = {37, 111, 112, 147, 188, 237}
+Healthcenter deployed at 131: Communities Assigned = {3, 18, 49, 140, 261}
+Healthcenter deployed at 135: Communities Assigned = {22, 34, 127, 152, 196, 289, 292}
+Healthcenter deployed at 136: Communities Assigned = {1, 16, 92, 135, 136, 262, 296}
+Healthcenter deployed at 137: Communities Assigned = {97, 102, 103, 110, 212, 231, 295}
+Healthcenter deployed at 142: Communities Assigned = {17, 33, 35, 142, 214, 277}
+Healthcenter deployed at 149: Communities Assigned = {76, 107, 113, 205, 241, 286}
+Healthcenter deployed at 165: Communities Assigned = {20, 72, 157, 225, 253}
+Healthcenter deployed at 167: Communities Assigned = {2, 79, 209, 249, 252}
+Healthcenter deployed at 171: Communities Assigned = {43, 51, 62, 124, 279}
+Healthcenter deployed at 178: Communities Assigned = {11, 27, 67, 77, 126, 132, 210, 248}
+Healthcenter deployed at 182: Communities Assigned = {21, 42, 108, 182, 213}
+Healthcenter deployed at 198: Communities Assigned = {81, 116, 118, 141, 153, 200}
+Healthcenter deployed at 202: Communities Assigned = {24, 85, 155, 245, 269, 294}
+Healthcenter deployed at 204: Communities Assigned = {32, 129, 151, 197, 204, 283}
+Healthcenter deployed at 208: Communities Assigned = {65, 80, 179, 208, 233}
+Healthcenter deployed at 209: Communities Assigned = {25, 61, 64, 243, 255, 266}
+Healthcenter deployed at 214: Communities Assigned = {71, 98, 160, 165, 290}
+Healthcenter deployed at 221: Communities Assigned = {96, 148, 162, 230, 239, 267, 278, 285}
+Healthcenter deployed at 235: Communities Assigned = {5, 52, 89, 173, 191, 264, 275}
+Healthcenter deployed at 236: Communities Assigned = {6, 9, 63, 169, 184, 185, 291}
+Healthcenter deployed at 245: Communities Assigned = {78, 114, 138, 150}
+Healthcenter deployed at 249: Communities Assigned = {100, 117, 181, 228, 242}
+Healthcenter deployed at 250: Communities Assigned = {53, 145, 190, 250}
+Healthcenter deployed at 252: Communities Assigned = {57, 75, 99, 137, 159}
+Healthcenter deployed at 257: Communities Assigned = {10, 122, 183, 201, 218, 240, 246, 288}
+Healthcenter deployed at 258: Communities Assigned = {84, 146, 163, 194, 195, 223, 235, 258}
+Healthcenter deployed at 261: Communities Assigned = {7, 14, 41, 93, 168, 203, 274}
+Healthcenter deployed at 264: Communities Assigned = {4, 38, 109, 115, 125, 271}
+Healthcenter deployed at 272: Communities Assigned = {26, 94, 131, 166, 180, 234, 259}
+Healthcenter deployed at 273: Communities Assigned = {13, 45, 73, 95, 177, 206, 273}
+Healthcenter deployed at 276: Communities Assigned = {58, 172, 174, 224, 299}
+Healthcenter deployed at 277: Communities Assigned = {48, 154, 161, 219, 244, 263, 298}
+Healthcenter deployed at 281: Communities Assigned = {144, 164, 170, 189, 272, 281}
+Healthcenter deployed at 293: Communities Assigned = {28, 143, 193, 217, 254, 300}
+Healthcenter deployed at 296: Communities Assigned = {83, 175, 202, 216, 251}
+Healthcenter deployed at 299: Communities Assigned = {15, 134, 186, 265, 276}
+
+Objective Value: 36061.0829010999
+
+Workload Fairness Check:
+  Min workload = 300.00, Max workload = 321.00
+  Workload Gap = 21.00 (Threshold Alpha = 63)
+
+
+Distance Fairness Check:
+  Min Distance = 0.00, Max Distance = 901.24
+  Distance Gap = 901.24 (Threshold Beta = 915.7555350638073)

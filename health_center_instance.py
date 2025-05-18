@@ -61,29 +61,35 @@ def _parse_instance_file(
     instance: HealthCenterInstancePartOne | HealthCenterInstancePartTwo,
     instance_file_path: str,
 ) -> None:
+    """
+    Supports both formats:
+      old → header, depot line (index 0), then N community lines
+      new → header only, then N community lines (indices start at 1)
+    """
 
-    with open(instance_file_path, "r") as file:
-        lines = file.readlines()
+    with open(instance_file_path, "r") as f:
+        lines = [ln for ln in f if ln.strip()]
 
     instance.num_communities, instance.num_health_centers = map(int, lines[0].split())
-    depot_line = lines[1].split()
-    instance.depot_coords = (float(depot_line[1]), float(depot_line[2]))
 
-    for line in lines[2:]:
-        parts = line.strip().split()
-        node_index = int(parts[0])
-        x_coord = float(parts[1])
-        y_coord = float(parts[2])
-        capacity = int(parts[3])
-        population = int(parts[4])
+    # detect depot line
+    start = 1
+    first_data = lines[1].split()
+    if first_data[0] == "0":  # old format
+        instance.depot_coords = (float(first_data[1]), float(first_data[2]))
+        start = 2  # skip depot
+    else:  # new format
+        instance.depot_coords = None  # no depot
 
+    for line in lines[start:]:
+        idx, x, y, cap, pop = line.split()
         instance.nodes.append(
             {
-                "index": node_index,
-                "x": x_coord,
-                "y": y_coord,
-                "capacity": capacity,
-                "population": population,
+                "index": int(idx),
+                "x": float(x),
+                "y": float(y),
+                "capacity": int(cap),
+                "population": int(pop),
             }
         )
 
@@ -137,9 +143,7 @@ class Distances:
         return self.distances[key]
 
 
-import time
 import gurobipy as gp
-from gurobipy import GRB
 
 
 class CustomTerminationCallback:
@@ -178,13 +182,12 @@ class CustomTerminationCallback:
                     print(f"Terminating: MIP gap {mip_gap:.2%} is within threshold.")
                     model.terminate()
 
-import time
-from gurobipy import GRB
 
 class TimeAfterFirstSolutionCallback:
     """
     Terminates the model t seconds after the first incumbent solution is found.
     """
+
     def __init__(self, time_after_first_solution: float = 3600):
         self.time_after_first_solution = time_after_first_solution
         self.first_solution_time: float | None = None
@@ -198,7 +201,7 @@ class TimeAfterFirstSolutionCallback:
                 return
 
             # If no incumbent yet, cbGet returns infinity; skip until a real solution appears
-            if best_obj < float('inf'):
+            if best_obj < float("inf"):
                 now = time.time()
                 # Record the moment of the first real solution
                 if self.first_solution_time is None:
@@ -210,3 +213,70 @@ class TimeAfterFirstSolutionCallback:
                         "since first incumbent solution."
                     )
                     model.terminate()
+
+
+import time
+import gurobipy as gp
+from gurobipy import GRB
+
+
+class CombinedTerminationCallback:
+    """
+    Per-instance limit + target MIP gap + no-improve cutoff.
+      max_time            total seconds allowed (wall clock)
+      gap_threshold       terminate when MIP gap ≤ this (e.g. 0.04 for 4%)
+      no_improve_time     seconds with no >improvement_threshold drop
+      improvement_threshold  relative improvement fraction (e.g. 0.01 for 1%)
+    """
+
+    def __init__(
+        self,
+        max_time: float = 7200,
+        gap_threshold: float = 0.04,
+        no_improve_time: float = 1800,
+        improvement_threshold: float = 0.01,
+    ):
+        self.max_time = max_time
+        self.gap_threshold = gap_threshold
+        self.no_improve_time = no_improve_time
+        self.improvement_threshold = improvement_threshold
+        self.start_time: float | None = None
+        self.first_solution_time: float | None = None
+        self.best_obj: float = float("inf")
+        self.last_improve_time: float | None = None
+
+    def __call__(self, model: gp.Model, where: int):
+        if where != GRB.Callback.MIP:
+            return
+        now = time.time()
+        if self.start_time is None:
+            self.start_time = now
+        # global wall‐clock cutoff
+        if now - self.start_time >= self.max_time:
+            model.terminate()
+            return
+        # fetch incumbent & bound
+        try:
+            bst = model.cbGet(GRB.Callback.MIP_OBJBST)
+            bnd = model.cbGet(GRB.Callback.MIP_OBJBND)
+        except gp.GurobiError:
+            return
+        if bst == float("inf"):
+            return
+        # record first solution
+        if self.first_solution_time is None:
+            self.first_solution_time = now
+            self.last_improve_time = now
+        # update best & last_improve_time
+        if bst < self.best_obj * (1 - self.improvement_threshold):
+            self.best_obj = bst
+            self.last_improve_time = now
+        # target gap cutoff
+        gap = abs(bst - bnd) / abs(bst)
+        if gap <= self.gap_threshold:
+            model.terminate()
+            return
+        # no‐improvement cutoff
+        if now - self.last_improve_time >= self.no_improve_time:
+            model.terminate()
+            return

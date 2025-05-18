@@ -1,0 +1,28 @@
+Healthcenter deployed at 3: Communities Assigned = {35, 41, 42, 48, 78, 99}
+Healthcenter deployed at 11: Communities Assigned = {9, 16, 46, 72, 83, 84, 92}
+Healthcenter deployed at 13: Communities Assigned = {38, 40, 53, 54, 88}
+Healthcenter deployed at 25: Communities Assigned = {1, 5, 15, 17, 18, 70, 71, 95}
+Healthcenter deployed at 29: Communities Assigned = {11, 12, 19, 65, 73, 82, 87}
+Healthcenter deployed at 40: Communities Assigned = {13, 37, 39, 50, 69, 75, 93}
+Healthcenter deployed at 46: Communities Assigned = {29, 32, 52, 56, 86}
+Healthcenter deployed at 47: Communities Assigned = {8, 24, 44, 61, 94}
+Healthcenter deployed at 48: Communities Assigned = {10, 25, 33, 66, 79, 91, 97}
+Healthcenter deployed at 51: Communities Assigned = {28, 64, 67, 68, 80, 81}
+Healthcenter deployed at 57: Communities Assigned = {14, 21, 27, 43, 62, 76}
+Healthcenter deployed at 62: Communities Assigned = {7, 20, 36, 57, 89, 90}
+Healthcenter deployed at 63: Communities Assigned = {2, 3, 4, 30}
+Healthcenter deployed at 64: Communities Assigned = {51, 58, 63, 100}
+Healthcenter deployed at 66: Communities Assigned = {31, 34, 45, 47, 59}
+Healthcenter deployed at 78: Communities Assigned = {6, 26, 74, 77, 85}
+Healthcenter deployed at 100: Communities Assigned = {22, 23, 49, 55, 60, 96, 98}
+
+Objective Value: 73295.5349936134
+
+Workload Fairness Check:
+  Min workload = 289.00, Max workload = 321.00
+  Workload Gap = 32.00 (Threshold Alpha = 63)
+
+
+Distance Fairness Check:
+  Min Distance = 193.81, Max Distance = 1044.22
+  Distance Gap = 850.41 (Threshold Beta = 872.8502735292004)
