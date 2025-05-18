@@ -75,7 +75,6 @@ Workload Fairness Check:
   Min workload = 253.00, Max workload = 310.00
   Workload Gap = 57.00 (Threshold Alpha = 57)
 
-
 Distance Fairness Check:
   Min Distance = 0.00, Max Distance = 916.24
   Distance Gap = 916.24 (Threshold Beta = 926.5250779120876)

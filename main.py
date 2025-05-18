@@ -28,9 +28,7 @@ parser.add_argument(
     help="Enable verbose logging of variables and constraints",
 )
 args = parser.parse_args()
-INSTANCE_IDS = (
-    args.instances if args.instances else [1, 3, 7, 8, 11, 12, 13, 14, 16, 18, 19]
-)
+INSTANCE_IDS = args.instances if args.instances else [11]
 VERBOSE = args.verbose
 
 
