@@ -9,10 +9,8 @@ Checks that the solution is feasible and recomputes objective, workload, distanc
 
 # Optional hardcoded list
 HARDCODED = [
-    ("Instance_1.txt", "Sol_Instance_1.txt"),
-    ("Instance_3.txt", "Sol_Instance_3.txt"),
-    ("Instance_11.txt", "Sol_Instance_11.txt"),
-    # Add more if needed
+    (f"Instance_{i}.txt", f"Sol_Instance_{i}.txt")
+    for i in [1, 3, 7, 8, 11, 12, 13, 14, 16, 18, 19]
 ]
 
 
