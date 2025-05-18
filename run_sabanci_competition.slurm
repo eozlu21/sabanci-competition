@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH -J sabanci-optim
-#SBATCH -p kuttam
 #SBATCH --ntasks=32
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=128G
@@ -10,14 +9,12 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=eozlu21@ku.edu.tr
 
+# Let Slurm choose from any available partition/node
+# by not setting -p or -w explicitly
 
 # Micromamba setup
 eval "$(micromamba shell hook --shell bash)"
 micromamba activate optim
 
-# Install dependencies if needed (optional)
-# pip install -r requirements.txt
-
-# Run your Python script
 echo "Running main.py..."
 python main.py
