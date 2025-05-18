@@ -1,6 +1,7 @@
 #!/bin/bash
 #SBATCH -J sabanci-optim
 #SBATCH -p avg
+#SBATCH -w ai30                      # Force usage of ai30 (confirmed idle)
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=128G
