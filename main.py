@@ -13,6 +13,9 @@ from model_part_one import build_part_one_model
 # Enable verbose logging if '-verbose' flag is passed
 VERBOSE = "-verbose" in sys.argv
 
+# List of instance IDs to solve (hardcoded)
+INSTANCE_IDS = [1, 3, 7, 8, 11, 12, 13, 14, 16, 18, 19]
+
 
 def solve_instance(instance_path: Path, output_path: Path) -> None:
     inst = HealthCenterInstancePartOne(str(instance_path))
@@ -99,8 +102,8 @@ def main() -> None:
         print("instances directory not found")
         sys.exit(1)
 
-    for inst_path in sorted(instances_dir.glob("Instance_*.txt")):
-        idx = inst_path.stem.split("_")[1]
+    for idx in INSTANCE_IDS:
+        inst_path = instances_dir / f"Instance_{idx}.txt"
         out_path = instances_dir / f"Sol_Instance_{idx}.txt"
         print(f"Solving {inst_path.name} …")
         solve_instance(inst_path, out_path)
