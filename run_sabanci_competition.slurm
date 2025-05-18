@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -J sabanci-optim
 #SBATCH -p kuttam                  # Explicitly specify partition
-#SBATCH --ntasks=32
-#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
 #SBATCH --mem=128G
 #SBATCH --time=1-00:00:00
 #SBATCH -o sabanci-%j.out
