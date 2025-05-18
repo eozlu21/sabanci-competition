@@ -231,7 +231,7 @@ class CombinedTerminationCallback:
 
     def __init__(
         self,
-        max_time: float = 9000,
+        max_time: float = 3600,
         gap_threshold: float = 0.00,
         no_improve_time: float = 9100,
         improvement_threshold: float = 0.03,
