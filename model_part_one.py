@@ -202,4 +202,9 @@ def build_part_one_model(instance: HealthCenterInstancePartOne) -> gp.Model:
         name="Beta_Constraint",
     )
 
+    # x_init, y_init = build_initial_solution(instance)
+    # apply_initial_solution_to_model(x, y, x_init, y_init)
+    # model.setParam("StartNodeLimit", 1000)
+    # model.setParam("PumpPasses", 20)  # or higher
+
     return model

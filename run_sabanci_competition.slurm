@@ -15,5 +15,6 @@
 eval "$(micromamba shell hook --shell bash)"
 micromamba activate optim
 
-echo "Running main.py..."
-python main.py
+echo "Running main.py with args:"
+echo "$@"
+python main.py "$@"

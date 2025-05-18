@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import argparse
 import re
 import sys
 from pathlib import Path
@@ -12,26 +11,6 @@ from health_center_instance import (
     CombinedTerminationCallback,
 )
 from model_part_one import build_part_one_model
-
-parser = argparse.ArgumentParser(
-    description="Solve or continue optimization for health center instances"
-)
-parser.add_argument(
-    "instances",
-    nargs="*",
-    type=int,
-    help="List of instance IDs to process (e.g., 1 2 3). Defaults to [7] if not provided.",
-)
-parser.add_argument(
-    "-verbose",
-    action="store_true",
-    help="Enable verbose logging of variables and constraints",
-)
-args = parser.parse_args()
-INSTANCE_IDS = (
-    args.instances if args.instances else [1, 3, 7, 8, 11, 12, 13, 14, 16, 18, 19]
-)
-VERBOSE = args.verbose
 
 
 def load_initial_solution(path: Path) -> dict[int, list[int]]:
@@ -64,23 +43,6 @@ def continue_instance(inst_path: Path, init_path: Path, out_path: Path) -> None:
     model.optimize(CombinedTerminationCallback())
     if model.status not in (GRB.OPTIMAL, GRB.INTERRUPTED):
         sys.exit("no solution found or interrupted")
-    _write_solution(inst, model, out_path)
-
-
-def solve_instance(inst_path: Path, output_path: Path) -> None:
-    inst = HealthCenterInstancePartOne(str(inst_path))
-    model = build_part_one_model(inst)
-    model.optimize(CombinedTerminationCallback())
-    if model.status not in (GRB.OPTIMAL, GRB.INTERRUPTED):
-        print(f"{inst_path.name}: no solution")
-        return
-    _write_solution(inst, model, output_path)
-
-
-def _write_solution(
-    inst: HealthCenterInstancePartOne, model, output_path: Path
-) -> None:
-    N = inst.num_communities
     deployed = [i for i in range(N) if model.getVarByName(f"x[{i}]").X > 0.5]
     assignment = {i: [] for i in deployed}
     for i in deployed:
@@ -96,7 +58,7 @@ def _write_solution(
     dists = [dist[i, j] for i in deployed for j in assignment[i]]
     d_min, d_max = min(dists), max(dists)
     beta = max(dist[i, j] for i in range(N) for j in range(i)) / 5
-    with open(output_path, "w") as f:
+    with open(out_path, "w") as f:
         for i in deployed:
             comms = ", ".join(str(j + 1) for j in sorted(assignment[i]))
             f.write(
@@ -113,23 +75,10 @@ def _write_solution(
         f.write(f"  Distance Gap = {d_max - d_min:.2f} (Threshold Beta = {beta})\n")
 
 
-def main() -> None:
-    instances_dir = Path("FINAL_ROUND_INSTANCES_OPTCHAL2025")
-    if not instances_dir.is_dir():
-        print("instances directory not found")
-        sys.exit(1)
-    for idx in INSTANCE_IDS:
-        inst_path = instances_dir / f"Instance_{idx}.txt"
-        sol_path = instances_dir / f"Sol_Instance_{idx}.txt"
-        print(f"Processing {inst_path.name}…")
-        if sol_path.exists():
-            print("Existing solution found. Continuing optimization.")
-            continue_instance(inst_path, sol_path, sol_path)
-        else:
-            print("No existing solution. Running fresh optimization.")
-            solve_instance(inst_path, sol_path)
-        print(f"Saved → {sol_path.name}")
-
-
 if __name__ == "__main__":
-    main()
+    root_path = Path("FINAL_ROUND_INSTANCES_OPTCHAL2025")
+    idx = 7
+    instance_path = root_path / Path(f"Instance_{idx}.txt")
+    init_path = root_path / Path(f"Sol_Instance_{idx}.txt")
+    output_path = root_path / Path(f"Sol_Instance_{idx}.txt")
+    continue_instance(instance_path, init_path, output_path)
