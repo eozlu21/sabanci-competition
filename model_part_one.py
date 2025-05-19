@@ -145,7 +145,7 @@ def build_part_one_model(instance: HealthCenterInstancePartOne) -> gp.Model:
     )
 
     model.addConstrs(
-        (gp.quicksum(y[i, j] for j in range(N)) <= x[i] * N for i in range(N)),
+        (y[i, j] <= x[i] for i in range(N) for j in range(N)),
         name="AssignmentLink",
     )
 

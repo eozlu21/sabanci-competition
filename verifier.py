@@ -62,14 +62,26 @@ def verify(instance_file: str, solution_file: str):
     n, m, C, dist, pop = parse_instance(Path(instance_file))
     deployed, assign, obj_rep = parse_solution(Path(solution_file))
 
+    # 0. basic sanity checks
+    if len(deployed) > m:
+        print(f"ERROR: Too many centers deployed: {len(deployed)} > {m}")
+        return
+
+    extra_keys = set(assign.keys()) - set(deployed)
+    if extra_keys:
+        print(f"ERROR: Assignments to non-deployed centers: {sorted(extra_keys)}")
+        return
+
     # 1. uniqueness & completeness
     all_assigned = [c for lst in assign.values() for c in lst]
     if len(set(all_assigned)) != n:
         print("ERROR: Some communities missing or duplicated in assignments.")
         missing = set(range(1, n + 1)) - set(all_assigned)
         dup = [c for c in all_assigned if all_assigned.count(c) > 1]
-        print("Missing:", missing)
-        print("Duplicates:", set(dup))
+        if missing:
+            print("Missing:", sorted(missing))
+        if dup:
+            print("Duplicates:", sorted(set(dup)))
         return
 
     # 2. capacity feasibility

@@ -54,12 +54,11 @@ Healthcenter deployed at 294: Communities Assigned = {85, 107, 167, 200, 205, 21
 Healthcenter deployed at 299: Communities Assigned = {80, 129, 174, 202, 223, 242, 296}
 Healthcenter deployed at 300: Communities Assigned = {10, 22, 112, 145, 173}
 
-Objective Value: 22159.0554175939
+Objective Value: 22159.0554175940
 
 Workload Fairness Check:
   Min workload = 243.00, Max workload = 297.00
   Workload Gap = 54.00 (Threshold Alpha = 55)
-
 
 Distance Fairness Check:
   Min Distance = 0.00, Max Distance = 916.35
